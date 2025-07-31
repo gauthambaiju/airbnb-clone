@@ -1,18 +1,20 @@
-import './App.css'
+import "./index.css";
+import { useState } from "react";
+import { CardStrip } from "./components/organisms/CardStrip";
+import { tabs } from "./data/homepage";
 
 function App() {
-  return (
-    <>
-        <h1>apple</h1>
-        <p className='bg-sky-200 text-red-600'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid provident optio voluptate quos obcaecati maxime numquam facilis quidem deserunt veritatis iure possimus vel quas, nisi nihil architecto eius recusandae blanditiis.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid provident optio voluptate quos obcaecati maxime numquam facilis quidem deserunt veritatis iure possimus vel quas, nisi nihil architecto eius recusandae blanditiis.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid provident optio voluptate quos obcaecati maxime numquam facilis quidem deserunt veritatis iure possimus vel quas, nisi nihil architecto eius recusandae blanditiis.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid provident optio voluptate quos obcaecati maxime numquam facilis quidem deserunt veritatis iure possimus vel quas, nisi nihil architecto eius recusandae blanditiis.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid provident optio voluptate quos obcaecati maxime numquam facilis quidem deserunt veritatis iure possimus vel quas, nisi nihil architecto eius recusandae blanditiis.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid provident optio voluptate quos obcaecati maxime numquam facilis quidem deserunt veritatis iure possimus vel quas, nisi nihil architecto eius recusandae blanditiis.</p>
-    </>
-  )
+    const [tabName, setTabName] = useState("homes");
+    return (
+        <>
+            <div className="space h-[300px]"></div>
+            {tabName in tabs
+                ? tabs[tabName].cardStripsData.map((data, i) => (
+                      <CardStrip key={i} data={data} />
+                  ))
+                : ""}
+        </>
+    );
 }
 
-export default App
-
+export default App;
