@@ -11,8 +11,9 @@ type Props = {
     };
 };
 
-export const Card: React.FC<Props> = ({ data }) => {
-    const { title, imagePath, price, rating, badge } = data;
+export const Card: React.FC<Props> = ({
+    data: { title, imagePath, price, rating, badge },
+}) => {
     return (
         <div>
             <div className="img-container relative">
@@ -28,12 +29,12 @@ export const Card: React.FC<Props> = ({ data }) => {
                     <LikeButton />
                 </div>
             </div>
-            <div className="mx-[4px]">
-                <span className="block text-[13px] leading-[16px] mt-2">
+            <div className="flex flex-col gap-[2px] mx-[4px]  mt-2">
+                <span className="inline-block font-medium text-[13px] leading-[16px] ">
                     {title}
                 </span>
-                <div className="flex text-[#6a6a6a]">
-                    <div className="leading-[16px] flex">
+                <div className="flex items-center text-[#6a6a6a] leading-[16px] h-4">
+                    <div className="leading-[16px] flex items-center h-4">
                         <div>
                             <span className="font-[400] text-[12px]">
                                 ₹{price.toLocaleString()}
@@ -46,11 +47,11 @@ export const Card: React.FC<Props> = ({ data }) => {
                             </span>
                         </div>
                     </div>
-                    <span className="text-[#c1c1c1c1] font-[700] text-[12px] inline-block mt-[1px]">
+                    <span className="text-[#c1c1c1c1] font-[700] text-[12px] inline-block">
                         <span>&nbsp;·&nbsp;</span>
                     </span>
-                    <span className="flex">
-                        <span className="mt-[6.25px]">
+                    <span className="flex items-center">
+                        <span className="">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 32 32"
@@ -70,7 +71,7 @@ export const Card: React.FC<Props> = ({ data }) => {
                                 ></path>
                             </svg>
                         </span>
-                        <span className="text-[12px] my-auto ml-[2.5px] mt-[1px]">
+                        <span className="text-[12px] my-auto ml-[2.5px]">
                             {rating}
                         </span>
                     </span>

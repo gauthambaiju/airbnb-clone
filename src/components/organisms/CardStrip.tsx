@@ -1,4 +1,5 @@
 import { Card } from "../molecules/Card";
+import { LeftArrow, RightArrow } from "../../assets/svgs";
 
 const cardContainerStyles = {
     columnGap: "11px",
@@ -24,11 +25,11 @@ export const CardStrip: React.FC<Props> = ({ data }: Props) => {
     return (
         <div>
             <div className="card-strip-header">
-                <div>
-                    <h2>
-                        <span>
+                <div className="flex mx-8 mt-8 mb-[14px]">
+                    <h2 className="inline-block">
+                        <span className="flex items-center leading-6 text-[20px] font-[600] pr-3 w-fit tracking-[-0.18px]">
                             {data.title}
-                            <span>
+                            <span className="flex items-center ml-[2px] h-fit mt-[2px]">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 32 32"
@@ -53,8 +54,11 @@ export const CardStrip: React.FC<Props> = ({ data }: Props) => {
                             </span>
                         </span>
                     </h2>
-                    <div>
-                        <button>
+                    <div className="ml-auto flex">
+                        <button
+                            type="button`"
+                            className="inline-flex items-center justify-center bg-[white] opacity-50 rounded-full w-6 h-6 border border-[#dddddd]"
+                        >
                             <span>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -79,7 +83,10 @@ export const CardStrip: React.FC<Props> = ({ data }: Props) => {
                                 </svg>
                             </span>
                         </button>
-                        <button>
+                        <button
+                            type="button"
+                            className="inline-flex items-center justify-center bg-[#f2f2f2] rounded-full w-6 h-6 ml-1"
+                        >
                             <span>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
