@@ -3,27 +3,27 @@ import { useState, createContext } from "react";
 import { CardStrip } from "./components/organisms/CardStrip";
 import { tabs } from "./data/homepage";
 import { Header } from "./components/organisms/Header";
-
-type TabContextType = {
-    tabName: string;
-    setTabName: React.Dispatch<React.SetStateAction<string>>;
-};
+import type {
+    TabName,
+    TabContextType,
+    CarouselDataType,
+} from "./types/home.types";
 
 export const TabContext = createContext<TabContextType>({
-    tabName: "homes",
+    tabName: "Homes",
     setTabName: () => {},
 });
 
 function App() {
-    const [tabName, setTabName] = useState("homes");
+    const [tabName, setTabName] = useState<TabName>("Homes");
+    const { subHeaderData, propertyListing } = tabs[tabName];
     return (
         <>
             <TabContext.Provider value={{ tabName, setTabName }}>
-                <Header />
-                {tabName in tabs &&
-                    tabs[tabName].propertyListing.map((data, i) => (
-                        <CardStrip key={i} data={data} />
-                    ))}
+                <Header data={subHeaderData} />
+                {propertyListing.map((data: CarouselDataType, i: number) => (
+                    <CardStrip key={i} data={data} />
+                ))}
             </TabContext.Provider>
         </>
     );

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Badge } from "../atoms/Badge";
 import { LikeButton } from "../atoms/LikeButton";
 
@@ -11,9 +12,12 @@ type Props = {
     };
 };
 
+let PROPERTY_DESCRIPTION_POSTFIX = "for 2 nights";
+
 export const Card: React.FC<Props> = ({
     data: { title, imagePath, price, rating, badge },
 }) => {
+    const [like, setLike] = useState(false);
     return (
         <div>
             <div className="img-container relative">
@@ -26,7 +30,7 @@ export const Card: React.FC<Props> = ({
                 </div>
                 <div className="wishlist-container flex justify-between absolute inset-0 px-[12px] pt-[12px]">
                     {badge && <Badge label="Guest favourite" />}
-                    <LikeButton />
+                    <LikeButton likeProps={{ like, setLike }} />
                 </div>
             </div>
             <div className="flex flex-col gap-[2px] mx-[4px]  mt-2">
@@ -43,7 +47,7 @@ export const Card: React.FC<Props> = ({
                         </div>
                         <div>
                             <span className="text-[12px] ml-[-0.8px]">
-                                for 2 nights
+                                {PROPERTY_DESCRIPTION_POSTFIX}
                             </span>
                         </div>
                     </div>

@@ -1,6 +1,17 @@
 import { TabStrip } from "../molecules/TabStrip";
+import { SubHeaderItem } from "../atoms/SubHeaderItem";
+import type { SubHeaderDataType } from "../../types/home.types";
 
-export const Header = () => {
+type Props = {
+    data: {
+        styles: string;
+        subHeaderItemData: SubHeaderDataType[];
+    };
+};
+
+export const Header: React.FC<Props> = ({
+    data: { styles, subHeaderItemData },
+}) => {
     return (
         <div
             className="h-50"
@@ -79,53 +90,20 @@ export const Header = () => {
                         boxShadow:
                             "rgba(0, 0, 0, 0.1) 0 8px 24px 0, rgba(0, 0, 0, 0.02) 0 0 0 1px",
                     }}
-                    className="relative grid grid-cols-[minmax(0,2fr)_1px_minmax(0,1fr)_1px_minmax(0,1fr)_1px_minmax(0,2fr)] items-center gap-[2px] max-w-[850px] h-[66px] w-full rounded-[32px] bg-white"
+                    className={styles}
                 >
-                    <div>
-                        <div className="py-[15px] px-8">
-                            <div className="leading-4 pb-[2px] text-[12px] font-[500]">
-                                Where
-                            </div>
-                            <div className="leading-[18px] text-[14px] text-[#6a6a6a] font-[400]">
-                                Search destinations
-                            </div>
-                        </div>
-                    </div>
-                    <div id="bar" className="bg-[#dddddd] h-8 w-[1px]"></div>
-                    <div>
-                        <div className="py-[15px] px-6">
-                            <div className="leading-4 pb-[2px] text-[12px] font-[500]">
-                                Check in
-                            </div>
-                            <div className="leading-[18px] text-[14px] text-[#6a6a6a] font-[400]">
-                                Add dates
-                            </div>
-                        </div>
-                    </div>
-                    <div id="bar" className="bg-[#dddddd] h-8 w-[1px]"></div>
-                    <div>
-                        <div className="py-[15px] px-6">
-                            <div className="leading-4 pb-[2px] text-[12px] font-[500]">
-                                Check out
-                            </div>
-                            <div className="leading-[18px] text-[14px] text-[#6a6a6a] font-[400]">
-                                Add dates
-                            </div>
-                        </div>
-                    </div>
-                    <div id="bar" className="bg-[#dddddd] h-8 w-[1px]"></div>
-                    <div>
-                        <div className="py-[15px] pl-6 pr-[130.904px]">
-                            <div className="leading-4 pb-[2px] text-[12px] font-[500]">
-                                Who
-                            </div>
-                            <div className="leading-[18px] text-[14px] text-[#6a6a6a] font-[400]">
-                                Add guests
-                            </div>
-                        </div>
-                    </div>
+                    {subHeaderItemData.map((dataItem, i) => (
+                        <SubHeaderItem
+                            key={i}
+                            data={dataItem}
+                            divider={subHeaderItemData.length - 1 !== i}
+                        />
+                    ))}
                     <div className="absolute right-0 p-[10px] h-[68px]">
-                        <button className="flex justify-center items-center h-12 w-12 rounded-full bg-[#ff385c]">
+                        <button
+                            type="button"
+                            className="flex justify-center items-center h-12 w-12 rounded-full bg-[#ff385c]"
+                        >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 32 32"

@@ -1,28 +1,29 @@
 import { useContext } from "react";
 import { TabContext } from "../../App";
+import type { TabDataType } from "../../types/home.types";
+import clsx from "clsx";
 
-const [tabName, setTabName] = useContext(TabContext);
-
-type Props = {
-    data: {
-        label: string;
-        videoSource: string;
-        ml: string;
-    };
-};
+type Props = { data: TabDataType };
 
 export const Tab: React.FC<Props> = ({ data: { label, videoSource, ml } }) => {
-    const handleClick = () => {};
+    const { tabName, setTabName } = useContext(TabContext);
     return (
         <div
-            className="flex items-center pl-[5px] ml-[-5px] mb-3 w-fit"
-            onClick={() => handleClick}
+            className={clsx(
+                "flex items-center pl-[5px] ml-[-5px] pb-[9px] w-fit border-b-3 px-[1.25px]",
+                label === tabName ? "border-black" : "border-transparent"
+            )}
+            onClick={() => setTabName(label)}
         >
-            <span className="inline-block h-9 w-9 translate-y-[1px]">
+            <span className="inline-block h-9 w-9  translate-y-[1px]">
                 <video className="scale-200" src={videoSource}></video>
             </span>
             <span
-                className="block leading-[18px] font-[600] h-fit text-[14px]"
+                className={clsx(
+                    "block leading-[18px] h-fit text-[14px] text-[#6a6a6a]",
+                    label === tabName && "text-black font-[600]",
+                    `ml-[${ml}]`
+                )}
                 style={{ marginLeft: ml }}
             >
                 {label}

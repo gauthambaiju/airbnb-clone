@@ -1,27 +1,20 @@
 import { Card } from "../molecules/Card";
-import { LeftArrow, RightArrow } from "../../assets/svgs";
+import { useRef } from "react";
+import type { CarouselDataType } from "../../types/home.types";
 
 const cardContainerStyles = {
     columnGap: "11px",
     gridAutoColumns: "calc(16.6667% - 9.16667px)",
     gridAutoFlow: "column",
-    gridTemplateRows: "225.812px",
 };
 
-type Props = {
-    data: {
-        title: string;
-        cardData: {
-            title: string;
-            imagePath: string;
-            price: number;
-            rating: string;
-            badge: boolean;
-        }[];
+type Props = { data: CarouselDataType };
+
+export const CardStrip: React.FC<Props> = ({ data }) => {
+    const carouselRef = useRef<HTMLDivElement>(null);
+    const handleScroll = (value: number) => {
+        carouselRef.current?.scrollBy({ left: value, behavior: "smooth" });
     };
-};
-
-export const CardStrip: React.FC<Props> = ({ data }: Props) => {
     return (
         <div>
             <div className="card-strip-header">
@@ -56,8 +49,9 @@ export const CardStrip: React.FC<Props> = ({ data }: Props) => {
                     </h2>
                     <div className="ml-auto flex">
                         <button
-                            type="button`"
+                            type="button"
                             className="inline-flex items-center justify-center bg-[white] opacity-50 rounded-full w-6 h-6 border border-[#dddddd]"
+                            onClick={() => handleScroll(-409)}
                         >
                             <span>
                                 <svg
@@ -86,6 +80,7 @@ export const CardStrip: React.FC<Props> = ({ data }: Props) => {
                         <button
                             type="button"
                             className="inline-flex items-center justify-center bg-[#f2f2f2] rounded-full w-6 h-6 ml-1"
+                            onClick={() => handleScroll(409)}
                         >
                             <span>
                                 <svg
@@ -118,9 +113,13 @@ export const CardStrip: React.FC<Props> = ({ data }: Props) => {
                 <div
                     className="grid justify-start overflow-x-scroll"
                     style={cardContainerStyles}
+                    ref={carouselRef}
                 >
                     {data.cardData.map((cardContent, i) => (
-                        <Card key={i} data={cardContent} />
+                        <Card
+                            key={`${cardContent.title}-${i}`}
+                            data={cardContent}
+                        />
                     ))}
                 </div>
             </div>
