@@ -24,27 +24,10 @@ export const CardStrip: React.FC<Props> = ({ data }) => {
                         <span className="flex items-center leading-6 text-[20px] font-[600] pr-3 w-fit tracking-[-0.18px]">
                             {data.title}
                             <span className="flex items-center ml-[2px] h-fit mt-[2px]">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 32 32"
-                                    aria-hidden="true"
-                                    role="presentation"
-                                    focusable="false"
-                                    style={{
-                                        display: "block",
-                                        fill: "none",
-                                        height: "12px",
-                                        width: "12px",
-                                        stroke: "rgb(34, 34, 34)",
-                                        strokeWidth: "5.33333",
-                                        overflow: "visible",
-                                    }}
-                                >
-                                    <path
-                                        fill="none"
-                                        d="m12 4 11.3 11.3a1 1 0 0 1 0 1.4L12 28"
-                                    ></path>
-                                </svg>
+                                <SvgHandler
+                                    name="rightArrow"
+                                    dimensions="w-3 h-3"
+                                />
                             </span>
                         </span>
                     </h2>
