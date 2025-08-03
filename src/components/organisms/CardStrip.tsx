@@ -1,6 +1,7 @@
 import { Card } from "../molecules/Card";
 import { useRef } from "react";
 import type { CarouselDataType } from "../../types/home.types";
+import { SvgHandler } from "../../assets/svgs/SvgHandler";
 
 const cardContainerStyles = {
     columnGap: "11px",
@@ -54,27 +55,10 @@ export const CardStrip: React.FC<Props> = ({ data }) => {
                             onClick={() => handleScroll(-409)}
                         >
                             <span>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 32 32"
-                                    aria-hidden="true"
-                                    role="presentation"
-                                    focusable="false"
-                                    style={{
-                                        display: "block",
-                                        fill: "none",
-                                        height: "12px",
-                                        width: "12px",
-                                        stroke: "rgb(193, 193, 193)",
-                                        strokeWidth: "4",
-                                        overflow: "visible",
-                                    }}
-                                >
-                                    <path
-                                        fill="none"
-                                        d="M20 28 8.7 16.7a1 1 0 0 1 0-1.4L20 4"
-                                    ></path>
-                                </svg>
+                                <SvgHandler
+                                    name="leftBtnArrow"
+                                    dimensions="w-3 h-3"
+                                />
                             </span>
                         </button>
                         <button
@@ -83,27 +67,10 @@ export const CardStrip: React.FC<Props> = ({ data }) => {
                             onClick={() => handleScroll(409)}
                         >
                             <span>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 32 32"
-                                    aria-hidden="true"
-                                    role="presentation"
-                                    focusable="false"
-                                    style={{
-                                        display: "block",
-                                        fill: "none",
-                                        height: "12px",
-                                        width: "12px",
-                                        stroke: "rgb(34, 34, 34)",
-                                        strokeWidth: "4",
-                                        overflow: "visible",
-                                    }}
-                                >
-                                    <path
-                                        fill="none"
-                                        d="m12 4 11.3 11.3a1 1 0 0 1 0 1.4L12 28"
-                                    ></path>
-                                </svg>
+                                <SvgHandler
+                                    name="rightBtnArrow"
+                                    dimensions="w-3 h-3"
+                                />
                             </span>
                         </button>
                     </div>

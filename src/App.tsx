@@ -22,7 +22,7 @@ function App() {
             <TabContext.Provider value={{ tabName, setTabName }}>
                 <Header data={subHeaderData} />
                 {propertyListing.map((data: CarouselDataType, i: number) => (
-                    <CardStrip key={i} data={data} />
+                    <CardStrip key={`${data.title}-${i}`} data={data} />
                 ))}
             </TabContext.Provider>
         </>
