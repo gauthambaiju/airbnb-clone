@@ -5,15 +5,17 @@ export type TabContextType = {
     setTabName: React.Dispatch<React.SetStateAction<TabName>>;
 };
 
+export type PropertyDetails = {
+    title: string;
+    imagePath: string;
+    price: number;
+    rating: string;
+    badge: boolean;
+};
+
 export type CarouselDataType = {
     title: string;
-    cardData: {
-        title: string;
-        imagePath: string;
-        price: number;
-        rating: string;
-        badge: boolean;
-    }[];
+    cardData: PropertyDetails[];
 };
 
 export type SubHeaderDataType = {
