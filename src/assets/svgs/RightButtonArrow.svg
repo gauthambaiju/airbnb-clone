@@ -4,7 +4,9 @@
   aria-hidden="true"
   role="presentation"
   focusable="false"
-  style="display: block; fill: none; height: 12px; width: 12px; stroke: rgb(34, 34, 34); stroke-width: 4; overflow: visible;"
+  height="12"
+  width="12"
+  style="display: block; fill: none; stroke: rgb(34, 34, 34); stroke-width: 4; overflow: visible;"
 >
   <path
     fill="none"

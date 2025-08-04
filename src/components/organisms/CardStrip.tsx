@@ -24,10 +24,7 @@ export const CardStrip: React.FC<Props> = ({ data }) => {
                         <span className="flex items-center leading-6 text-[20px] font-[600] pr-3 w-fit tracking-[-0.18px]">
                             {data.title}
                             <span className="flex items-center ml-[2px] h-fit mt-[2px]">
-                                <SvgHandler
-                                    name="rightArrow"
-                                    dimensions="w-3 h-3"
-                                />
+                                <SvgHandler name="rightArrow" />
                             </span>
                         </span>
                     </h2>
@@ -38,10 +35,7 @@ export const CardStrip: React.FC<Props> = ({ data }) => {
                             onClick={() => handleScroll(-409)}
                         >
                             <span>
-                                <SvgHandler
-                                    name="leftBtnArrow"
-                                    dimensions="w-3 h-3"
-                                />
+                                <SvgHandler name="leftBtnArrow" />
                             </span>
                         </button>
                         <button
@@ -50,10 +44,7 @@ export const CardStrip: React.FC<Props> = ({ data }) => {
                             onClick={() => handleScroll(409)}
                         >
                             <span>
-                                <SvgHandler
-                                    name="rightBtnArrow"
-                                    dimensions="w-3 h-3"
-                                />
+                                <SvgHandler name="rightBtnArrow" />
                             </span>
                         </button>
                     </div>
@@ -61,7 +52,7 @@ export const CardStrip: React.FC<Props> = ({ data }) => {
             </div>
             <div className="card-strip px-[32px]">
                 <div
-                    className="grid justify-start overflow-x-scroll"
+                    className="grid justify-start overflow-x-scroll overflow-y-hidden"
                     style={cardContainerStyles}
                     ref={carouselRef}
                 >

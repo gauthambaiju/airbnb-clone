@@ -7,7 +7,9 @@
   fill="none"
   stroke="rgb(193, 193, 193)"
   stroke-width="4"
-  style="display: block; height: 12px; width: 12px; overflow: visible;"
+  height="12"
+  width="12"
+  style="display: block; overflow: visible;"
 >
   <path
     fill="none"
